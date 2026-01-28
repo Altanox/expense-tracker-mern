@@ -6,7 +6,6 @@ import Income from "./pages/Dashboard/Income.jsx";
 import Expense from "./pages/Dashboard/Expense.jsx";
 
 function App() {
-
     return (
         <div>
             <Router>
