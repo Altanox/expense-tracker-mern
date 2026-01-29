@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
+import * as path from 'path';
 
 dontenv.config();
 
@@ -22,6 +23,9 @@ app.use(express.json());
 connectDB();
 
 app.use('/api/v1/auth', authRoutes);
+
+// serve uploads directory
+app.use('/uploads', express.static(path.join(path.dirname('.'), 'uploads')));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
