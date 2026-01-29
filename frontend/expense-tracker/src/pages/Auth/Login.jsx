@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout.jsx'
-import { Link, useNavigate } from 'react-router-dom'
-import Input from '../../components/Inputs/Input.jsx'
-import { validateEmail } from '../../utils/helper.js'
+import React, { useState } from 'react';
+import AuthLayout from '../../components/layouts/AuthLayout.jsx';
+import { Link, useNavigate } from 'react-router-dom';
+import Input from '../../components/Inputs/Input.jsx';
+import { validateEmail } from '../../utils/helper.js';
 
 const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState(null)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     async function handleLogin(e) {
-        e.preventDefault()
-        const validEmail = validateEmail(email)
+        e.preventDefault();
+        const validEmail = validateEmail(email);
 
         if (!validEmail) {
-            setError('Please enter a valid email address')
+            setError('Please enter a valid email address');
         }
 
         if (!password) {
-            setError('Please enter the password')
+            setError('Please enter the password');
         }
 
-        if (validEmail && password) setError('')
+        if (validEmail && password) setError('');
 
         // todo login api call
     }
@@ -73,7 +73,7 @@ const Login = () => {
                 </form>
             </div>
         </AuthLayout>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

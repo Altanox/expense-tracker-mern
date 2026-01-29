@@ -1,37 +1,37 @@
-import React, { useState } from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout.jsx'
-import { Link, useNavigate } from 'react-router-dom'
-import Input from '../../components/Inputs/Input.jsx'
-import { validateEmail } from '../../utils/helper.js'
-import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector.jsx'
+import React, { useState } from 'react';
+import AuthLayout from '../../components/layouts/AuthLayout.jsx';
+import { Link, useNavigate } from 'react-router-dom';
+import Input from '../../components/Inputs/Input.jsx';
+import { validateEmail } from '../../utils/helper.js';
+import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector.jsx';
 
 const SignUp = () => {
-    const [profilePic, setProfilePic] = useState(null)
-    const [fullName, setFullName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState(null)
+    const [profilePic, setProfilePic] = useState(null);
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     function handleSignup(e) {
-        e.preventDefault()
-        let profileImageUrl = ''
-        const validEmail = validateEmail(email)
+        e.preventDefault();
+        let profileImageUrl = '';
+        const validEmail = validateEmail(email);
 
         if (!fullName) {
-            setError('Please enter your name')
+            setError('Please enter your name');
         }
 
         if (!validEmail) {
-            setError('Please enter a valid email address')
+            setError('Please enter a valid email address');
         }
 
         if (!password) {
-            setError('Please enter the password')
+            setError('Please enter the password');
         }
 
-        if (validEmail && password) setError('')
+        if (validEmail && password) setError('');
 
         // todo signup api call
     }
@@ -98,7 +98,7 @@ const SignUp = () => {
                 </form>
             </div>
         </AuthLayout>
-    )
-}
+    );
+};
 
-export default SignUp
+export default SignUp;

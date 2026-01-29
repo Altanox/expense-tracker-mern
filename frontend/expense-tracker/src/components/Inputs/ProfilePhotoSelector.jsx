@@ -1,28 +1,28 @@
-import React, { useRef, useState } from 'react'
-import { LuTrash, LuUpload, LuUser } from 'react-icons/lu'
+import React, { useRef, useState } from 'react';
+import { LuTrash, LuUpload, LuUser } from 'react-icons/lu';
 
 const ProfilePhotoSelector = ({ image, setImage }) => {
-    const inputRef = useRef(null)
-    const [previewUrl, setPreviewUrl] = useState(null)
+    const inputRef = useRef(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
     function handleImageChange(e) {
-        const file = e.target.files[0]
+        const file = e.target.files[0];
 
         if (file) {
-            setImage(file)
+            setImage(file);
 
-            const preview = URL.createObjectURL(file)
-            setPreviewUrl(preview)
+            const preview = URL.createObjectURL(file);
+            setPreviewUrl(preview);
         }
     }
 
     function handleRemoveImage() {
-        setImage(null)
-        setPreviewUrl(null)
+        setImage(null);
+        setPreviewUrl(null);
     }
 
     function oncChooseFile() {
-        inputRef.current.click()
+        inputRef.current.click();
     }
 
     return (
@@ -63,7 +63,7 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default ProfilePhotoSelector
+export default ProfilePhotoSelector;
